@@ -1,0 +1,7 @@
+﻿services:
+  kikoff.api:
+    image: kikoff.api
+    build:
+      context: .
+      dockerfile: src/Kikoff.Api/Dockerfile
+
