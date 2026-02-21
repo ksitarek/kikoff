@@ -61,13 +61,17 @@ TEST_PROJECTS=(
 # ── Source function definitions ───────────────────────────────────────────────
 
 DEPS_DIR="${SCRIPT_DIR}/deps"
+source "${DEPS_DIR}/assert-clean-worktree.sh"
 source "${DEPS_DIR}/create-directories.sh"
 source "${DEPS_DIR}/create-classlib-projects.sh"
 source "${DEPS_DIR}/create-test-projects.sh"
 source "${DEPS_DIR}/update-modules-json.sh"
 source "${DEPS_DIR}/add-projects-to-solution.sh"
+source "${DEPS_DIR}/verify-build.sh"
 
 # ── Execute ───────────────────────────────────────────────────────────────────
+
+assert_clean_worktree
 
 echo "Scaffolding module '${MODULE_NAME}'..."
 
@@ -76,5 +80,6 @@ create_classlib_projects
 create_test_projects
 update_modules_json
 add_projects_to_solution
+verify_build
 
 echo "Module '${MODULE_NAME}' scaffolding complete."

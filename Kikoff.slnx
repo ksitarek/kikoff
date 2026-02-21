@@ -1,15 +1,2 @@
 <Solution>
-  <Folder Name="/src/" />
-  <Folder Name="/src/Modules/" />
-  <Folder Name="/src/Modules/LoremIpsum/">
-    <Project Path="src/Modules/LoremIpsum/Kikoff.Modules.LoremIpsum.Application/Kikoff.Modules.LoremIpsum.Application.csproj" />
-    <Project Path="src/Modules/LoremIpsum/Kikoff.Modules.LoremIpsum.Domain/Kikoff.Modules.LoremIpsum.Domain.csproj" />
-    <Project Path="src/Modules/LoremIpsum/Kikoff.Modules.LoremIpsum.Infrastructure/Kikoff.Modules.LoremIpsum.Infrastructure.csproj" />
-    <Project Path="src/Modules/LoremIpsum/Kikoff.Modules.LoremIpsum.PublishedLanguage/Kikoff.Modules.LoremIpsum.PublishedLanguage.csproj" />
-  </Folder>
-  <Folder Name="/src/Modules/LoremIpsum/Tests/">
-    <Project Path="src/Modules/LoremIpsum/Tests/Kikoff.Modules.LoremIpsum.Tests.Application/Kikoff.Modules.LoremIpsum.Tests.Application.csproj" />
-    <Project Path="src/Modules/LoremIpsum/Tests/Kikoff.Modules.LoremIpsum.Tests.Domain/Kikoff.Modules.LoremIpsum.Tests.Domain.csproj" />
-    <Project Path="src/Modules/LoremIpsum/Tests/Kikoff.Modules.LoremIpsum.Tests.Infrastructure/Kikoff.Modules.LoremIpsum.Tests.Infrastructure.csproj" />
-  </Folder>
 </Solution>

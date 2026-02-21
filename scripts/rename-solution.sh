@@ -40,13 +40,17 @@ fi
 # ── Source function definitions ───────────────────────────────────────────────
 
 DEPS_DIR="${SCRIPT_DIR}/deps"
+source "${DEPS_DIR}/assert-clean-worktree.sh"
 source "${DEPS_DIR}/rename-directories.sh"
 source "${DEPS_DIR}/rename-csproj-files.sh"
 source "${DEPS_DIR}/rename-slnx-file.sh"
 source "${DEPS_DIR}/fix-project-references.sh"
 source "${DEPS_DIR}/fix-cs-namespaces.sh"
+source "${DEPS_DIR}/verify-build.sh"
 
 # ── Execute ───────────────────────────────────────────────────────────────────
+
+assert_clean_worktree
 
 echo "Renaming solution '${OLD_NAME}' -> '${NEW_NAME}'..."
 
@@ -56,5 +60,6 @@ rename_slnx_file
 fix_csproj_references
 fix_slnx_references
 fix_cs_namespaces
+verify_build
 
 echo "Solution renamed to '${NEW_NAME}' successfully."
