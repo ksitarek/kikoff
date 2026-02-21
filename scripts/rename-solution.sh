@@ -44,6 +44,7 @@ source "${DEPS_DIR}/rename-directories.sh"
 source "${DEPS_DIR}/rename-csproj-files.sh"
 source "${DEPS_DIR}/rename-slnx-file.sh"
 source "${DEPS_DIR}/fix-project-references.sh"
+source "${DEPS_DIR}/fix-cs-namespaces.sh"
 
 # ── Execute ───────────────────────────────────────────────────────────────────
 
@@ -54,5 +55,6 @@ rename_csproj_files
 rename_slnx_file
 fix_csproj_references
 fix_slnx_references
+fix_cs_namespaces
 
 echo "Solution renamed to '${NEW_NAME}' successfully."
