@@ -1,2 +1,15 @@
 <Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Modules/Lorem/">
+    <Project Path="src/Modules/Lorem/TESTName.Modules.Lorem.Application/TESTName.Modules.Lorem.Application.csproj" />
+    <Project Path="src/Modules/Lorem/TESTName.Modules.Lorem.Domain/TESTName.Modules.Lorem.Domain.csproj" />
+    <Project Path="src/Modules/Lorem/TESTName.Modules.Lorem.Infrastructure/TESTName.Modules.Lorem.Infrastructure.csproj" />
+    <Project Path="src/Modules/Lorem/TESTName.Modules.Lorem.PublishedLanguage/TESTName.Modules.Lorem.PublishedLanguage.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Lorem/Tests/">
+    <Project Path="src/Modules/Lorem/Tests/TESTName.Modules.Lorem.Tests.Application/TESTName.Modules.Lorem.Tests.Application.csproj" />
+    <Project Path="src/Modules/Lorem/Tests/TESTName.Modules.Lorem.Tests.Domain/TESTName.Modules.Lorem.Tests.Domain.csproj" />
+    <Project Path="src/Modules/Lorem/Tests/TESTName.Modules.Lorem.Tests.Infrastructure/TESTName.Modules.Lorem.Tests.Infrastructure.csproj" />
+  </Folder>
 </Solution>
