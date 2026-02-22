@@ -2,6 +2,18 @@
   <Folder Name="/BuildingBlocks/">
     <Project Path="src/BuildingBlocks/Kikoff.BuildingBlocks.Modules/Kikoff.BuildingBlocks.Modules.csproj" />
   </Folder>
+  <Folder Name="/Modules/" />
+  <Folder Name="/Modules/Sample/">
+    <Project Path="src/Modules/Sample/Kikoff.Modules.Sample.Application/Kikoff.Modules.Sample.Application.csproj" />
+    <Project Path="src/Modules/Sample/Kikoff.Modules.Sample.Domain/Kikoff.Modules.Sample.Domain.csproj" />
+    <Project Path="src/Modules/Sample/Kikoff.Modules.Sample.Infrastructure/Kikoff.Modules.Sample.Infrastructure.csproj" />
+    <Project Path="src/Modules/Sample/Kikoff.Modules.Sample.PublishedLanguage/Kikoff.Modules.Sample.PublishedLanguage.csproj" />
+  </Folder>
+  <Folder Name="/Modules/Sample/Tests/">
+    <Project Path="src/Modules/Sample/Tests/Kikoff.Modules.Sample.Tests.Application/Kikoff.Modules.Sample.Tests.Application.csproj" />
+    <Project Path="src/Modules/Sample/Tests/Kikoff.Modules.Sample.Tests.Domain/Kikoff.Modules.Sample.Tests.Domain.csproj" />
+    <Project Path="src/Modules/Sample/Tests/Kikoff.Modules.Sample.Tests.Infrastructure/Kikoff.Modules.Sample.Tests.Infrastructure.csproj" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path="compose.yaml" />
   </Folder>
