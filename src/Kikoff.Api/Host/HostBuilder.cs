@@ -4,11 +4,10 @@ namespace Kikoff.Api.Host;
 
 public class KikoffHostBuilder
 {
-    private readonly List<IModule> _modules = new();
+    public IModule[] Modules { get; }
 
-    public KikoffHostBuilder AddModule(IModule module)
+    public KikoffHostBuilder(params IModule[] modules)
     {
-        _modules.Add(module);
-        return this;
+        Modules = modules;
     }
 }
