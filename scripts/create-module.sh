@@ -30,9 +30,6 @@ if [[ -z "${SOLUTION_FILE}" ]]; then
   exit 1
 fi
 SOLUTION_NAME="$(basename "${SOLUTION_FILE}" .slnx)"
-API_ROOT="${REPO_ROOT}/${SOLUTION_NAME}.Api"
-
-MODULES_FILE="${API_ROOT}/modules.json"
 
 MODULE_ROOT="${REPO_ROOT}/src/Modules/${MODULE_NAME}"
 TESTS_ROOT="${MODULE_ROOT}/Tests"
@@ -65,8 +62,8 @@ DEPS_DIR="${SCRIPT_DIR}/deps"
 source "${DEPS_DIR}/assert-clean-worktree.sh"
 source "${DEPS_DIR}/create-directories.sh"
 source "${DEPS_DIR}/create-classlib-projects.sh"
+source "${DEPS_DIR}/create-module-file.sh"
 source "${DEPS_DIR}/create-test-projects.sh"
-source "${DEPS_DIR}/update-modules-json.sh"
 source "${DEPS_DIR}/add-projects-to-solution.sh"
 source "${DEPS_DIR}/verify-build.sh"
 
@@ -78,9 +75,9 @@ echo "Scaffolding module '${MODULE_NAME}'..."
 
 create_directories
 create_classlib_projects
+create_module_file
 create_test_projects
-update_modules_json
 add_projects_to_solution
 verify_build
 
-echo "Module '${MODULE_NAME}' scaffolding complete."
+echo "Module '${MODULE_NAME}' scaffolding complete. Please remember to add it to Program.cs file."
