@@ -14,8 +14,11 @@ function add_projects_to_solution() {
   while IFS= read -r csproj; do
     [[ -z "${csproj}" ]] && continue
     local rel_path="${csproj#"${REPO_ROOT}"/}"
-    if dotnet sln "${SOLUTION_FILE}" add "${csproj}" -s "Modules/${MODULE_NAME}" >/dev/null 2>&1; then
-      echo "  Added: ${rel_path}"
+    local dir_path
+    dir_path="$(dirname "${rel_path}")"
+    local solution_folder="${dir_path#src/}"
+    if dotnet sln "${SOLUTION_FILE}" add "${csproj}" --solution-folder "${solution_folder}" >/dev/null 2>&1; then
+      echo "  Added: ${rel_path} -> ${solution_folder}"
     else
       echo "  Warning: Failed to add ${rel_path}" >&2
     fi
