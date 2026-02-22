@@ -16,7 +16,8 @@ function add_projects_to_solution() {
     local rel_path="${csproj#"${REPO_ROOT}"/}"
     local dir_path
     dir_path="$(dirname "${rel_path}")"
-    local solution_folder="${dir_path#src/}"
+    local without_src="${dir_path#src/}"
+    local solution_folder="${without_src%/*}"
     if dotnet sln "${SOLUTION_FILE}" add "${csproj}" --solution-folder "${solution_folder}" >/dev/null 2>&1; then
       echo "  Added: ${rel_path} -> ${solution_folder}"
     else
