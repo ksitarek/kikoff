@@ -8,16 +8,5 @@
   </Folder>
   <Folder Name="/src/" />
   <Folder Name="/src/Modules/" />
-  <Folder Name="/src/Modules/SampleModule/">
-    <Project Path="src/Modules/SampleModule/Kikoff.Modules.SampleModule.Application/Kikoff.Modules.SampleModule.Application.csproj" />
-    <Project Path="src/Modules/SampleModule/Kikoff.Modules.SampleModule.Domain/Kikoff.Modules.SampleModule.Domain.csproj" />
-    <Project Path="src/Modules/SampleModule/Kikoff.Modules.SampleModule.Infrastructure/Kikoff.Modules.SampleModule.Infrastructure.csproj" />
-    <Project Path="src/Modules/SampleModule/Kikoff.Modules.SampleModule.PublishedLanguage/Kikoff.Modules.SampleModule.PublishedLanguage.csproj" />
-  </Folder>
-  <Folder Name="/src/Modules/SampleModule/Tests/">
-    <Project Path="src/Modules/SampleModule/Tests/Kikoff.Modules.SampleModule.Tests.Application/Kikoff.Modules.SampleModule.Tests.Application.csproj" />
-    <Project Path="src/Modules/SampleModule/Tests/Kikoff.Modules.SampleModule.Tests.Domain/Kikoff.Modules.SampleModule.Tests.Domain.csproj" />
-    <Project Path="src/Modules/SampleModule/Tests/Kikoff.Modules.SampleModule.Tests.Infrastructure/Kikoff.Modules.SampleModule.Tests.Infrastructure.csproj" />
-  </Folder>
   <Project Path="src/Kikoff.Api/Kikoff.Api.csproj" />
 </Solution>
