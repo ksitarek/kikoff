@@ -9,9 +9,9 @@ function module_file_template() {
   local module_name="$2"
 
   cat <<EOF
-namespace ${solution_name}.Modules.${module_name}.Infrastructure;
-
 using ${solution_name}.BuildingBlocks.Modules;
+
+namespace ${solution_name}.Modules.${module_name}.Infrastructure;
 
 public sealed class ${module_name}Module : IModule;
 EOF
