@@ -1,0 +1,1 @@
+dotnet format Kikoff.slnx --verify-no-changes
