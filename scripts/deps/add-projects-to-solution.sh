@@ -8,7 +8,7 @@ function add_projects_to_solution() {
 
   echo "Adding projects to solution..."
   local csproj_files
-  csproj_files="$(find "${MODULE_ROOT}" -name "*.csproj" -type f | sort)"
+  csproj_files="$(find "${MODULE_ROOT}" -name "*.csproj" -s "Modules/${MODULE_NAME}"  -type f | sort)"
 
   local csproj
   while IFS= read -r csproj; do
