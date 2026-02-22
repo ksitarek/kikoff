@@ -11,8 +11,19 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\BuildingBlocks\Kikoff.BuildingBlocks.Http\Kikoff.BuildingBlocks.Http.csproj" />
         <ProjectReference Include="..\BuildingBlocks\Kikoff.BuildingBlocks.Modules\Kikoff.BuildingBlocks.Modules.csproj" />
         <ProjectReference Include="..\Modules\Sample\Kikoff.Modules.Sample.Infrastructure\Kikoff.Modules.Sample.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" />
+      <PackageReference Include="Autofac.Extensions.DependencyInjection" />
+      <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+      <PackageReference Include="Serilog" />
+      <PackageReference Include="Serilog.AspNetCore" />
+      <PackageReference Include="Serilog.Sinks.Console" />
+      <PackageReference Include="Serilog.Sinks.File" />
     </ItemGroup>
 
 </Project>

@@ -13,7 +13,7 @@ using ${solution_name}.BuildingBlocks.Modules;
 
 namespace ${solution_name}.Modules.${module_name}.Infrastructure;
 
-public sealed class ${module_name}Module : IModule;
+public sealed class ${module_name}Module : IKikoffModule;
 EOF
 }
 

@@ -15,6 +15,13 @@
       <IsPackable>false</IsPackable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="SonarAnalyzer.CSharp">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+  
     <ItemGroup Condition="$(MSBuildProjectFullPath.Contains('Tests'))">
       <Using Include="NUnit.Framework" />
     </ItemGroup>
