@@ -8,7 +8,8 @@ function module_file_template() {
   local solution_name="$1"
   local module_name="$2"
 
-  cat <<EOF namespace ${solution_name}.Modules.${module_name}.Infrastructure;
+  cat <<EOF
+namespace ${solution_name}.Modules.${module_name}.Infrastructure;
 
 using ${solution_name}.BuildingBlocks.Modules;
 
