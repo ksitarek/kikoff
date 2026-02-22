@@ -9,6 +9,7 @@ function create_classlib_projects() {
       continue
     fi
     dotnet new classlib --name "${project}" --output "${output_dir}" >/dev/null
+    strip_csproj "${output_dir}" "${project}"
     echo "  Created ${project}"
   done
 }

@@ -60,6 +60,7 @@ TEST_PROJECTS=(
 
 DEPS_DIR="${SCRIPT_DIR}/deps"
 source "${DEPS_DIR}/assert-clean-worktree.sh"
+source "${DEPS_DIR}/strip-csproj.sh"
 source "${DEPS_DIR}/create-directories.sh"
 source "${DEPS_DIR}/create-classlib-projects.sh"
 source "${DEPS_DIR}/create-module-file.sh"
