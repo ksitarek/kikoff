@@ -12,6 +12,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\BuildingBlocks\Kikoff.BuildingBlocks.Modules\Kikoff.BuildingBlocks.Modules.csproj" />
+        <ProjectReference Include="..\Modules\Sample\Kikoff.Modules.Sample.Infrastructure\Kikoff.Modules.Sample.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>
