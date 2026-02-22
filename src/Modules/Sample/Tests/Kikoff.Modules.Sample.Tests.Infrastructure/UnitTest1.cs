@@ -1,4 +1,4 @@
-﻿namespace Kikoff.Modules.Sample.Tests.Infrastructure;
+namespace Kikoff.Modules.Sample.Tests.Infrastructure;
 
 public class Tests
 {

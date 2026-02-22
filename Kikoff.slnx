@@ -15,7 +15,12 @@
     <Project Path="src/Modules/Sample/Tests/Kikoff.Modules.Sample.Tests.Infrastructure/Kikoff.Modules.Sample.Tests.Infrastructure.csproj" />
   </Folder>
   <Folder Name="/Solution Items/">
+    <File Path=".dockerignore" />
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
     <File Path="compose.yaml" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
   </Folder>
   <Project Path="src/Kikoff.Api/Kikoff.Api.csproj" />
 </Solution>

@@ -1,21 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
-        <Nullable>enable</Nullable>
-        <ImplicitUsings>enable</ImplicitUsings>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Include="..\..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
+        <Content Include="..\..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\BuildingBlocks\Kikoff.BuildingBlocks.Modules\Kikoff.BuildingBlocks.Modules.csproj" />
-      <ProjectReference Include="..\Modules\Sample\Kikoff.Modules.Sample.Infrastructure\Kikoff.Modules.Sample.Infrastructure.csproj" />
+        <ProjectReference Include="..\BuildingBlocks\Kikoff.BuildingBlocks.Modules\Kikoff.BuildingBlocks.Modules.csproj" />
+        <ProjectReference Include="..\Modules\Sample\Kikoff.Modules.Sample.Infrastructure\Kikoff.Modules.Sample.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

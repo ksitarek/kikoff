@@ -1,4 +1,4 @@
-﻿namespace Kikoff.Modules.Sample.Domain;
+namespace Kikoff.Modules.Sample.Domain;
 
 public class Class1
 {

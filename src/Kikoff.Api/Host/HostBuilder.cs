@@ -2,7 +2,7 @@ using Kikoff.BuildingBlocks.Modules;
 
 namespace Kikoff.Api.Host;
 
-public class KikoffHostBuilder
+internal class KikoffHostBuilder
 {
     public IModule[] Modules { get; }
 
