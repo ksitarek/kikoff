@@ -30,8 +30,9 @@ if [[ -z "${SOLUTION_FILE}" ]]; then
   exit 1
 fi
 SOLUTION_NAME="$(basename "${SOLUTION_FILE}" .slnx)"
+API_ROOT="${REPO_ROOT}/${SOLUTION_NAME}.Api"
 
-MODULES_FILE="${REPO_ROOT}/modules.json"
+MODULES_FILE="${API_ROOT}/modules.json"
 
 MODULE_ROOT="${REPO_ROOT}/src/Modules/${MODULE_NAME}"
 TESTS_ROOT="${MODULE_ROOT}/Tests"
