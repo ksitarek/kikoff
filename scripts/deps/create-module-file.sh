@@ -30,6 +30,8 @@ function create_module_file() {
 
   dotnet add "${infra_dir}" reference "${REPO_ROOT}/src/BuildingBlocks/${SOLUTION_NAME}.BuildingBlocks.Modules/${SOLUTION_NAME}.BuildingBlocks.Modules.csproj" >/dev/null
 
+  dotnet add "${REPO_ROOT}/src/${SOLUTION_NAME}.Api/${SOLUTION_NAME}.Api.csproj" reference "${infra_dir}/${PROJECT_INFRASTRUCTURE}.csproj" >/dev/null
+
   mkdir -p "${infra_dir}"
   module_file_template "${SOLUTION_NAME}" "${MODULE_NAME}" > "${file_path}"
   echo "  Created ${MODULE_NAME}Module.cs"
