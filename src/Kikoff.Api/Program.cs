@@ -21,6 +21,7 @@ public static class Program
 
             hostBuilder.SetupConfiguration();
             hostBuilder.ConfigureDependencyInjectionContainer();
+            hostBuilder.InstallModules();
 
             KikoffApplication application = hostBuilder.Build();
 

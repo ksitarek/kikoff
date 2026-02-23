@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
     <ProjectReference Include="..\..\..\BuildingBlocks\Kikoff.BuildingBlocks.Modules\Kikoff.BuildingBlocks.Modules.csproj" />
+    <ProjectReference Include="..\Kikoff.Modules.Sample.Application\Kikoff.Modules.Sample.Application.csproj" />
   </ItemGroup>
 </Project>

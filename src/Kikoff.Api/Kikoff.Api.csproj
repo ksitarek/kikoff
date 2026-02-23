@@ -17,8 +17,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Autofac" />
-      <PackageReference Include="Autofac.Extensions.DependencyInjection" />
       <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
       <PackageReference Include="Serilog" />
       <PackageReference Include="Serilog.AspNetCore" />
