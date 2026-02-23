@@ -67,10 +67,10 @@ internal class KikoffApplication : IAsyncDisposable
     private void OverrideGlobalLogger()
     {
         // Logging is configured as late as possible to ensure we have consistent logging during API startup.
-
-        Log.Information("Overriding global logger configuration");
-
+        
         ILogger logger = _application.Services.GetRequiredService<ILogger>();
+
+        Log.Information("Overriding global logger configuration.");
 
         Log.Logger = logger;
     }

@@ -40,7 +40,7 @@ internal class KikoffHostBuilder
 
     internal void ConfigureDependencyInjectionContainer()
     {
-        Services.AddSerilog(c => c.ReadFrom.Configuration(Configuration));
+        Services.AddSerilog(c => c.ReadFrom.Configuration(Configuration), preserveStaticLogger: true);
         Services.AddOptions();
         Services.AddMemoryCache();
 
