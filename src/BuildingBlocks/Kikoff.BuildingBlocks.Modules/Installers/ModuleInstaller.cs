@@ -11,7 +11,6 @@ internal class ModuleInstaller
     private readonly IKikoffModule _module;
     private readonly IConfiguration _configuration;
     private readonly IServiceCollection _hostServices;
-
     private readonly ILogger _log;
 
     public ModuleInstaller(IKikoffModule module, IConfiguration configuration, IServiceCollection hostServices)
@@ -21,24 +20,34 @@ internal class ModuleInstaller
         _hostServices = hostServices;
 
         _log = Log.ForContext<ModuleInstaller>().ForContext("ModuleName", _module.Name);
-
     }
 
-    public void ConfigureModule()
+    public void Install()
     {
-        _log.Information("Configuring module");
+        ConfigureModule();
+        ScanCoreModuleServices();
+        RegisterModuleServices();
+    }
+
+    private void ConfigureModule()
+    {
+        _log.Debug("Configuring module");
 
         _module.SetConfiguration(_configuration);
      }
 
-    public void ScanCoreModuleServices()
+    private void ScanCoreModuleServices()
     {
+        _log.Debug("Configuring core services");
+
         _module.Services.Scan(x => x.FromAssemblies(_module.ApplicationAssembly)
             .AddEndpointDefinitions());
     }
 
-    public void RegisterModuleServices()
+    private void RegisterModuleServices()
     {
+        _log.Debug("Registering module services");
+
         _module.ConfigureServices();
 
         foreach (ServiceDescriptor service in _module.Services)

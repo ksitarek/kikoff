@@ -42,6 +42,7 @@ public static class Program
         // After application starts up, this logger will be overriden by the one configured in appsettings.
         const string template = "[{Timestamp:HH:mm:ss} {Level:u3}] STARTUP {Message:lj}{NewLine}{Exception}";
         Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Debug()
             .WriteTo.Console(outputTemplate: template, formatProvider: CultureInfo.InvariantCulture)
             .WriteTo.File(
                 path: "logs/log.txt",

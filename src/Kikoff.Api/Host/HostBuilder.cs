@@ -13,7 +13,6 @@ internal class KikoffHostBuilder
     private readonly ModulesInstaller _modulesInstaller;
 
     private ConfigurationManager Configuration => _webAppBuilder.Configuration;
-    private ConfigureHostBuilder Host => _webAppBuilder.Host;
     private IServiceCollection Services => _webAppBuilder.Services;
 
     public KikoffHostBuilder(IKikoffModule[] modules, params string[] args)
@@ -41,7 +40,7 @@ internal class KikoffHostBuilder
 
     internal void ConfigureDependencyInjectionContainer()
     {
-        Services.AddLogging(lb => lb.AddSerilog());
+        Services.AddSerilog(c => c.ReadFrom.Configuration(Configuration));
         Services.AddOptions();
         Services.AddMemoryCache();
 
@@ -57,13 +56,6 @@ internal class KikoffHostBuilder
 
     internal KikoffApplication Build()
     {
-        // Logging is configured as late as possible to ensure we have consistent logging during API startup.
-        // Also we need to set Log.Logger after we override global logger to make sure .NET will use the same
-        // configuration.
-        Host.UseSerilog(new LoggerConfiguration()
-            .ReadFrom.Configuration(Configuration)
-            .CreateLogger());
-
         WebApplication webApplication = _webAppBuilder.Build();
 
         return new KikoffApplication(webApplication);

@@ -1,6 +1,7 @@
 using Kikoff.BuildingBlocks.Modules.Abstractions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 
 namespace Kikoff.BuildingBlocks.Modules.Installers;
 
@@ -11,6 +12,7 @@ public class ModulesInstaller
     private readonly IKikoffModule[] _modules;
     private readonly IServiceCollection _hostServices;
     private readonly IConfigurationSection _modulesSection;
+    private static readonly ILogger Log = Serilog.Log.ForContext<ModulesInstaller>();
 
     public ModulesInstaller(IKikoffModule[] modules, IConfigurationRoot configurationRoot, IServiceCollection hostServices)
     {
@@ -21,6 +23,8 @@ public class ModulesInstaller
 
     public void InstallModules()
     {
+        Log.Debug("Installing modules");
+
         foreach (IKikoffModule module in _modules)
         {
             IConfigurationSection moduleConfigurationSection = GetModuleConfiguration(module);
@@ -31,11 +35,10 @@ public class ModulesInstaller
 
     private static void InstallModule(IKikoffModule module, IConfigurationSection configuration, IServiceCollection hostServices)
     {
-        var installer = new ModuleInstaller(module, configuration, hostServices);
+        Log.Information("Installing module {ModuleName}", module.Name);
 
-        installer.ConfigureModule();
-        installer.ScanCoreModuleServices();
-        installer.RegisterModuleServices();
+        var installer = new ModuleInstaller(module, configuration, hostServices);
+        installer.Install();
     }
 
     private IConfigurationSection GetModuleConfiguration(IKikoffModule module)
