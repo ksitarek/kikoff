@@ -4,6 +4,7 @@ using Kikoff.BuildingBlocks.Modules.Extensions;
 namespace Kikoff.Tests.BuildingBlocks.Modules
 {
     [Category("Unit")]
+    [Category("BuildingBlocks")]
     public class TypeExtensionsTests
     {
         [Test]

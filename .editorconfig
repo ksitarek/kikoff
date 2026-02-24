@@ -304,7 +304,3 @@ dotnet_diagnostic.S125.severity = none # Suppress: Error S125 : Remove this comm
 dotnet_diagnostic.S1135.severity = suggestion # Change severity of: Error S1135 : Complete the task associated to this 'TODO' comment.
 dotnet_diagnostic.S1144.severity = none # Suppress: Error S1144 : Remove the unused private method '...'
 dotnet_diagnostic.S2326.severity = none # Suppress: Error S2326 : '...' is not used in the interface
-
-# ─── Test projects ────────────────────────────────────────────────────────────
-[**/*.Tests*/**/*.cs]
-dotnet_naming_rule.async_methods_should_end_with_async.severity = none
