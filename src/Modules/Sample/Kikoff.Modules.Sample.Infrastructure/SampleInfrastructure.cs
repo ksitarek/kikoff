@@ -1,4 +1,7 @@
 using System.Reflection;
+using Kikoff.BuildingBlocks.Modules;
+
+[assembly:KikoffModule("Sample")]
 
 namespace Kikoff.Modules.Sample.Infrastructure;
 

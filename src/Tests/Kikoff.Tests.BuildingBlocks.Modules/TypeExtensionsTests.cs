@@ -1,5 +1,8 @@
+using Kikoff.BuildingBlocks.Modules;
 using Kikoff.BuildingBlocks.Modules.Extensions;
 using Kikoff.Modules.LoremIpsum.Application;
+
+[assembly:KikoffModule("LoremIpsum")]
 
 namespace Kikoff.Tests.BuildingBlocks.Modules
 {
