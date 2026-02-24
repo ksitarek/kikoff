@@ -17,7 +17,7 @@ public static class WebApplicationBuilderExtensions
                 .GetSection(CorsConfigSectionName)
                 .Get<CorsOptionsConfig>() ?? new();
 
-            if(config.AllowedOrigins.Length == 0)
+            if (config.AllowedOrigins.Length == 0)
             {
                 Log.Warning("No allowed origins configured for CORS. Skipping CORS configuration.");
                 return applicationBuilder;

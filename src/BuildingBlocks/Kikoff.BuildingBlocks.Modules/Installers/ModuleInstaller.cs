@@ -34,7 +34,7 @@ internal class ModuleInstaller
         _log.Debug("Configuring module");
 
         _module.SetConfiguration(_configuration);
-     }
+    }
 
     private void ScanCoreModuleServices()
     {

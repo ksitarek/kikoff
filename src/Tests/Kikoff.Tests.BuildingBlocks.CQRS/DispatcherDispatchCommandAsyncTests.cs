@@ -1,4 +1,4 @@
-﻿using Kikoff.BuildingBlocks.CQRS.Abstractions;
+using Kikoff.BuildingBlocks.CQRS.Abstractions;
 using Kikoff.BuildingBlocks.CQRS.Dispatchers;
 using Kikoff.BuildingBlocks.CQRS.Extensions;
 using Kikoff.BuildingBlocks.CQRS.Pipelines;

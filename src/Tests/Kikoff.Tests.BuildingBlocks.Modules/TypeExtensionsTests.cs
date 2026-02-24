@@ -1,5 +1,5 @@
-﻿using Kikoff.Modules.LoremIpsum.Application;
 using Kikoff.BuildingBlocks.Modules.Extensions;
+using Kikoff.Modules.LoremIpsum.Application;
 
 namespace Kikoff.Tests.BuildingBlocks.Modules
 {
