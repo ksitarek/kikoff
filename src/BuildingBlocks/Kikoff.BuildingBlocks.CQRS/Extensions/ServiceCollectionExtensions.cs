@@ -49,7 +49,7 @@ internal static class ServiceProviderExtensions
         }
 
         internal IRequestHandler<TRequest, TResult> GetRequestHandler<TRequest, TResult>()
-            where TRequest : IRequest<TResult>, IRequest
+            where TRequest : IRequest<TResult>
         {
             IRequestHandler<TRequest, TResult>? handler = serviceProvider.GetService<IRequestHandler<TRequest, TResult>>();
 

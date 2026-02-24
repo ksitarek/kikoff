@@ -23,7 +23,7 @@ internal class InMemoryMessageDispatcher : IDispatcher
     }
 
     public async Task<TResult> DispatchRequestAsync<TRequest, TResult>(TRequest request,
-        CancellationToken cancellationToken = default) where TRequest : IRequest<TResult>, IRequest
+        CancellationToken cancellationToken = default) where TRequest : IRequest<TResult>
     {
         IRequestHandler<TRequest, TResult> handler = _serviceProvider.GetRequestHandler<TRequest, TResult>();
         return await DispatchMessageAsync(request, handler, cancellationToken);

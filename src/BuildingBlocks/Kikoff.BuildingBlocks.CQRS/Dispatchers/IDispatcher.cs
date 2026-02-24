@@ -12,5 +12,5 @@ public interface IDispatcher
     Task<TResult> DispatchRequestAsync<TRequest, TResult>(
         TRequest request,
         CancellationToken cancellationToken = default)
-        where TRequest : IRequest<TResult>, IRequest;
+        where TRequest : IRequest<TResult>;
 }

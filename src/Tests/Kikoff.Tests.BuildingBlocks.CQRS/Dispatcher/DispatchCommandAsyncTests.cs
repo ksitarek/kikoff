@@ -4,11 +4,11 @@ using Kikoff.BuildingBlocks.CQRS.Extensions;
 using Kikoff.BuildingBlocks.CQRS.Pipelines;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Kikoff.Tests.BuildingBlocks.CQRS;
+namespace Kikoff.Tests.BuildingBlocks.CQRS.Dispatcher;
 
 [Category("Unit")]
 [Category("BuildingBlocks")]
-public class DispatcherDispatchCommandAsyncTests
+public class DispatchCommandAsyncTests
 {
     private readonly ServiceCollection _serviceCollection = new();
 
@@ -85,11 +85,11 @@ public class DispatcherDispatchCommandAsyncTests
 
         public DummyHandler(Registry registry) => _registry = registry;
 
-        public async Task<Guid> HandleAsync(HandlerContext<DummyCommand> commandContext)
+        public async Task<Guid> HandleAsync(HandlerContext<DummyCommand> handlerContext)
         {
             await Task.Delay(1); // Simulate some async work
             _registry.PipelineLog.Add(GetType());
-            return commandContext.Message.Id;
+            return handlerContext.Message.Id;
         }
     }
 }
