@@ -1,6 +1,4 @@
 using Kikoff.BuildingBlocks.CQRS.Abstractions;
-using Kikoff.BuildingBlocks.Modules.Extensions;
-using ServiceCollectionExtensions = Kikoff.BuildingBlocks.CQRS.Extensions.ServiceCollectionExtensions;
 
 namespace Kikoff.BuildingBlocks.CQRS.Dispatchers;
 

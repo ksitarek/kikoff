@@ -1,5 +1,4 @@
 using System.Reflection;
-using Kikoff.BuildingBlocks.Modules;
 using Kikoff.BuildingBlocks.Modules.Abstractions;
 using Kikoff.Modules.Sample.Application;
 using Kikoff.Modules.Sample.Application.Weather;
