@@ -4,7 +4,7 @@ namespace Kikoff.BuildingBlocks.CQRS.Pipelines.Behaviors;
 
 public class LoggingBehavior<T, TResult> : IPipelineBehavior<T, TResult>
 {
-    public async Task<TResult> HandleAsync(MessageContext<T> inputContext, Func<Task<TResult>> next)
+    public async Task<TResult> HandleAsync(HandlerContext<T> inputContext, Func<Task<TResult>> next)
     {
         string? messageName = typeof(T).FullName;
 

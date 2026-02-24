@@ -4,5 +4,5 @@ namespace Kikoff.BuildingBlocks.CQRS.Pipelines;
 
 public interface IPipelineBehavior<TInput, TOutput>
 {
-    Task<TOutput> HandleAsync(MessageContext<TInput> inputContext, Func<Task<TOutput>> next);
+    Task<TOutput> HandleAsync(HandlerContext<TInput> inputContext, Func<Task<TOutput>> next);
 }

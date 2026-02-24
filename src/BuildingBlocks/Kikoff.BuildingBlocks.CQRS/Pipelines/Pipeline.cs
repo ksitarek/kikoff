@@ -12,7 +12,7 @@ internal class Pipeline<TMessage, TResult>
     }
 
     public async Task<TResult> ExecuteAsync(
-        MessageContext<TMessage> context,
+        HandlerContext<TMessage> context,
         Func<Task<TResult>> handlerDelegate)
     {
         foreach (IPipelineBehavior<TMessage, TResult> behavior in Behaviors)

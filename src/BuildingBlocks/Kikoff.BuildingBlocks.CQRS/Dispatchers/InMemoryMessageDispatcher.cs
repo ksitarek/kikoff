@@ -1,4 +1,5 @@
 using Kikoff.BuildingBlocks.CQRS.Abstractions;
+using Kikoff.BuildingBlocks.CQRS.Extensions;
 using Kikoff.BuildingBlocks.CQRS.Pipelines;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
@@ -17,42 +18,39 @@ internal class InMemoryMessageDispatcher : IDispatcher
     public async Task<TResult> DispatchCommandAsync<TCommand, TResult>(TCommand command,
         CancellationToken cancellationToken = default) where TCommand : ICommand<TResult>
     {
-        var correlationId = Guid.NewGuid();
+        ICommandHandler<TCommand, TResult> handler = _serviceProvider.GetCommandHandler<TCommand, TResult>();
+        return await DispatchMessageAsync(command, handler, cancellationToken);
+    }
 
-        ILogger logger = Log.ForContext("CorrelationId", correlationId);
+    public async Task<TResult> DispatchRequestAsync<TRequest, TResult>(TRequest request,
+        CancellationToken cancellationToken = default) where TRequest : IRequest<TResult>, IRequest
+    {
+        IRequestHandler<TRequest, TResult> handler = _serviceProvider.GetRequestHandler<TRequest, TResult>();
+        return await DispatchMessageAsync(request, handler, cancellationToken);
+    }
 
-        logger.Information("Dispatching command {Command}", command.GetType().Name);
+    private async Task<TResult> DispatchMessageAsync<T, TResult>(
+        T message,
+        IMessageHandler<T, TResult> handler,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(message);
 
-        ICommandHandler<TCommand, TResult> handler = GetCommandHandler<TCommand, TResult>(logger);
-
-        Pipeline<TCommand, TResult> pipeline = PipelineBuilder<TCommand, TResult>.Create(_serviceProvider)
-            .Build();
-
-        var context = new CommandContext<TCommand>()
+        var context = new HandlerContext<T>()
         {
-            CorrelationId = correlationId,
+            CorrelationId = Guid.NewGuid(),
             HandlerName = handler.GetType().FullName!,
-            Message = command,
-            Logger = logger,
+            Message = message,
             CancellationToken = cancellationToken
         };
+
+        context.Logger.Information("Dispatching message {T}", message.GetType().Name);
+
+        Pipeline<T, TResult> pipeline = PipelineBuilder<T, TResult>.Create(_serviceProvider)
+            .Build();
 
         return await pipeline.ExecuteAsync(context, HandlerDelegate);
 
         async Task<TResult> HandlerDelegate() => await handler.HandleAsync(context);
-    }
-
-    private ICommandHandler<TCommand, TResult> GetCommandHandler<TCommand, TResult>(ILogger logger)
-        where TCommand : ICommand<TResult>
-    {
-        ICommandHandler<TCommand, TResult>? handler = _serviceProvider.GetService<ICommandHandler<TCommand, TResult>>();
-
-        if (handler != null)
-        {
-            return handler;
-        }
-
-        logger.Error("No handler found for command {Command}", typeof(TCommand).Name);
-        throw new InvalidOperationException($"No handler found for command of type {typeof(TCommand).FullName}");
     }
 }

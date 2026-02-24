@@ -8,4 +8,9 @@ public interface IDispatcher
         TCommand command,
         CancellationToken cancellationToken = default)
         where TCommand : ICommand<TResult>;
+
+    Task<TResult> DispatchRequestAsync<TRequest, TResult>(
+        TRequest request,
+        CancellationToken cancellationToken = default)
+        where TRequest : IRequest<TResult>, IRequest;
 }

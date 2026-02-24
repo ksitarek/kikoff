@@ -52,7 +52,7 @@ public class DispatcherDispatchCommandAsyncTests
 
         public PipelineBehavior1(Registry registry) => _registry = registry;
 
-        public Task<TResult> HandleAsync(MessageContext<T> inputContext, Func<Task<TResult>> next)
+        public Task<TResult> HandleAsync(HandlerContext<T> inputContext, Func<Task<TResult>> next)
         {
             _registry.PipelineLog.Add(GetType());
             return next();
@@ -65,7 +65,7 @@ public class DispatcherDispatchCommandAsyncTests
 
         public PipelineBehavior2(Registry registry) => _registry = registry;
 
-        public Task<TResult> HandleAsync(MessageContext<T> inputContext, Func<Task<TResult>> next)
+        public Task<TResult> HandleAsync(HandlerContext<T> inputContext, Func<Task<TResult>> next)
         {
             _registry.PipelineLog.Add(GetType());
             return next();
@@ -85,7 +85,7 @@ public class DispatcherDispatchCommandAsyncTests
 
         public DummyHandler(Registry registry) => _registry = registry;
 
-        public async Task<Guid> HandleAsync(CommandContext<DummyCommand> commandContext)
+        public async Task<Guid> HandleAsync(HandlerContext<DummyCommand> commandContext)
         {
             await Task.Delay(1); // Simulate some async work
             _registry.PipelineLog.Add(GetType());

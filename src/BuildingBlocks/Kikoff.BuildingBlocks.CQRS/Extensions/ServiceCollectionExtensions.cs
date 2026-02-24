@@ -1,3 +1,4 @@
+using Kikoff.BuildingBlocks.CQRS.Abstractions;
 using Kikoff.BuildingBlocks.CQRS.Dispatchers;
 using Kikoff.BuildingBlocks.CQRS.Pipelines;
 using Kikoff.BuildingBlocks.CQRS.Pipelines.Behaviors;
@@ -31,6 +32,28 @@ public static class ServiceCollectionExtensions
         {
             services.AddKeyedTransient(serviceType, moduleName, implementationType);
             return services;
+        }
+    }
+}
+
+internal static class ServiceProviderExtensions
+{
+    extension(IServiceProvider serviceProvider)
+    {
+        internal ICommandHandler<TCommand, TResult> GetCommandHandler<TCommand, TResult>()
+            where TCommand : ICommand<TResult>
+        {
+            ICommandHandler<TCommand, TResult>? handler = serviceProvider.GetService<ICommandHandler<TCommand, TResult>>();
+
+            return handler ?? throw new InvalidOperationException($"No handler found for command of type {typeof(TCommand).FullName}");
+        }
+
+        internal IRequestHandler<TRequest, TResult> GetRequestHandler<TRequest, TResult>()
+            where TRequest : IRequest<TResult>, IRequest
+        {
+            IRequestHandler<TRequest, TResult>? handler = serviceProvider.GetService<IRequestHandler<TRequest, TResult>>();
+
+            return handler ?? throw new InvalidOperationException($"No handler found for request of type {typeof(TRequest).FullName}");
         }
     }
 }
