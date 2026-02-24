@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Kikoff.Tests.BuildingBlocks.Module</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\BuildingBlocks\Kikoff.BuildingBlocks.Modules\Kikoff.BuildingBlocks.Modules.csproj" />
+    </ItemGroup>
+
+</Project>

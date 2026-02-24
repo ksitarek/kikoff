@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+      <PackageReference Include="Serilog" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Kikoff.BuildingBlocks.Modules\Kikoff.BuildingBlocks.Modules.csproj" />
+    </ItemGroup>
+
+</Project>

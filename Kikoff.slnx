@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/BuildingBlocks/">
+    <Project Path="src/BuildingBlocks/Kikoff.BuildingBlocks.CQRS/Kikoff.BuildingBlocks.CQRS.csproj" />
     <Project Path="src/BuildingBlocks/Kikoff.BuildingBlocks.Http/Kikoff.BuildingBlocks.Http.csproj" />
     <Project Path="src/BuildingBlocks/Kikoff.BuildingBlocks.Modules/Kikoff.BuildingBlocks.Modules.csproj" />
   </Folder>
@@ -22,6 +23,9 @@
     <File Path="compose.yaml" />
     <File Path="Directory.Build.props" />
     <File Path="Directory.Packages.props" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="src\Tests\Kikoff.Tests.BuildingBlocks.Modules\Kikoff.Tests.BuildingBlocks.Modules.csproj" />
   </Folder>
   <Project Path="src/Kikoff.Api/Kikoff.Api.csproj" />
 </Solution>
