@@ -49,6 +49,7 @@ internal class ModuleInstaller
         _log.Debug("Registering module services");
 
         _module.ConfigureServices();
+        // TODO: scan for handlers
 
         foreach (ServiceDescriptor service in _module.Services)
         {

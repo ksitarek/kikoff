@@ -15,7 +15,7 @@ public class DispatchCommandAsyncTests
     [SetUp]
     public void Setup()
     {
-        _serviceCollection.AddTalentFlowMessageDispatcher();
+        _serviceCollection.AddKikoffMessageDispatcher();
         _serviceCollection.AddKeyedScoped(typeof(IPipelineBehavior<,>), "Common", typeof(PipelineBehavior1<,>));
         _serviceCollection.AddKeyedScoped(typeof(IPipelineBehavior<,>), "Common", typeof(PipelineBehavior2<,>));
         _serviceCollection.AddScoped<ICommandHandler<DummyCommand, Guid>, DummyHandler>();

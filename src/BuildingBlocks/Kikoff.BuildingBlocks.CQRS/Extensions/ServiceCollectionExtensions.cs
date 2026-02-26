@@ -12,7 +12,7 @@ public static class ServiceCollectionExtensions
 
     extension(IServiceCollection services)
     {
-        public IServiceCollection AddTalentFlowMessageDispatcher()
+        public IServiceCollection AddKikoffMessageDispatcher()
         {
             // Register default behaviors
             services.AddCommonPipeline(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));

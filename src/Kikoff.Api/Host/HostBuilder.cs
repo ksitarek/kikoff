@@ -1,4 +1,5 @@
 using System.Reflection;
+using Kikoff.BuildingBlocks.CQRS.Extensions;
 using Kikoff.BuildingBlocks.Http.Cors;
 using Kikoff.BuildingBlocks.Modules.Abstractions;
 using Kikoff.BuildingBlocks.Modules.Installers;
@@ -50,6 +51,8 @@ internal class KikoffHostBuilder
         }
 
         _webAppBuilder.AddKikoffCors();
+
+        Services.AddKikoffMessageDispatcher();
 
         // AUTH GOES HERE
     }

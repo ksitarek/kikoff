@@ -1,8 +1,8 @@
 using Kikoff.BuildingBlocks.Modules;
 using Kikoff.BuildingBlocks.Modules.Extensions;
-using Kikoff.Modules.LoremIpsum.Application;
+using Kikoff.Modules.Lorem.Ipsum.Application;
 
-[assembly: KikoffModule("LoremIpsum")]
+[assembly: KikoffModule("Lorem.Ipsum")]
 
 namespace Kikoff.Tests.BuildingBlocks.Modules
 {
@@ -13,12 +13,12 @@ namespace Kikoff.Tests.BuildingBlocks.Modules
         [Test]
         public void Will_Correctly_Extract_Message_ModuleName()
         {
-            Assert.That(typeof(KikoffTestMessage).TryGetModuleName(), Is.EqualTo("LoremIpsum"));
+            Assert.That(typeof(KikoffTestMessage).TryGetModuleName(), Is.EqualTo("Lorem.Ipsum"));
         }
     }
 }
 
-namespace Kikoff.Modules.LoremIpsum.Application
+namespace Kikoff.Modules.Lorem.Ipsum.Application
 {
     internal class KikoffTestMessage();
 }
