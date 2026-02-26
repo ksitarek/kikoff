@@ -1,18 +1,19 @@
 using Kikoff.BuildingBlocks.Http.Endpoints;
 using Scrutor;
 
-namespace Kikoff.BuildingBlocks.Modules.Extensions;
+namespace Kikoff.BuildingBlocks.Http.Extensions;
 
-internal static class ImplementationTypeSelectorExtensions
+public static class ImplementationTypeSelectorExtensions
 {
     extension(IImplementationTypeSelector selector)
     {
-        internal IImplementationTypeSelector AddEndpointDefinitions()
+        public IImplementationTypeSelector AddEndpointDefinitions()
         {
             return selector
                 .AddClasses(c => c.AssignableTo<IEndpointDefinition>(), publicOnly: false)
                 .AsImplementedInterfaces()
                 .WithSingletonLifetime();
         }
+
     }
 }

@@ -1,10 +1,10 @@
+using Kikoff.BuildingBlocks.CQRS.Extensions;
+using Kikoff.BuildingBlocks.Http.Extensions;
 using Kikoff.BuildingBlocks.Modules.Abstractions;
-using Kikoff.BuildingBlocks.Modules.Extensions;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Serilog;
+using ILogger = Serilog.ILogger;
 
-namespace Kikoff.BuildingBlocks.Modules.Installers;
+namespace Kikoff.Api.Host.Installers;
 
 internal class ModuleInstaller
 {
@@ -41,7 +41,9 @@ internal class ModuleInstaller
         _log.Debug("Configuring core services");
 
         _module.Services.Scan(x => x.FromAssemblies(_module.ApplicationAssembly)
-            .AddEndpointDefinitions());
+            .AddEndpointDefinitions()
+            .AddCommandHandlers()
+            .AddRequestHandlers());
     }
 
     private void RegisterModuleServices()
@@ -49,7 +51,6 @@ internal class ModuleInstaller
         _log.Debug("Registering module services");
 
         _module.ConfigureServices();
-        // TODO: scan for handlers
 
         foreach (ServiceDescriptor service in _module.Services)
         {

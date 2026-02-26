@@ -3,6 +3,7 @@ using Kikoff.BuildingBlocks.CQRS.Dispatchers;
 using Kikoff.BuildingBlocks.CQRS.Pipelines;
 using Kikoff.BuildingBlocks.CQRS.Pipelines.Behaviors;
 using Microsoft.Extensions.DependencyInjection;
+using Scrutor;
 
 namespace Kikoff.BuildingBlocks.CQRS.Extensions;
 
@@ -54,6 +55,27 @@ internal static class ServiceProviderExtensions
             IRequestHandler<TRequest, TResult>? handler = serviceProvider.GetService<IRequestHandler<TRequest, TResult>>();
 
             return handler ?? throw new InvalidOperationException($"No handler found for request of type {typeof(TRequest).FullName}");
+        }
+    }
+}
+
+public static class ImplementationTypeSelectorExtensions
+{
+    extension(IImplementationTypeSelector selector)
+    {
+        public IImplementationTypeSelector AddCommandHandlers()
+        {
+            return selector
+                .AddClasses(c => c.AssignableTo(typeof(ICommandHandler<,>)), publicOnly: false)
+                .AsImplementedInterfaces()
+                .WithTransientLifetime();
+        }
+        public IImplementationTypeSelector AddRequestHandlers()
+        {
+            return selector
+                .AddClasses(c => c.AssignableTo(typeof(IRequestHandler<,>)), publicOnly: false)
+                .AsImplementedInterfaces()
+                .WithTransientLifetime();
         }
     }
 }

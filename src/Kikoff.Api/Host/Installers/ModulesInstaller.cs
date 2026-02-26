@@ -1,9 +1,7 @@
 using Kikoff.BuildingBlocks.Modules.Abstractions;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Serilog;
+using ILogger = Serilog.ILogger;
 
-namespace Kikoff.BuildingBlocks.Modules.Installers;
+namespace Kikoff.Api.Host.Installers;
 
 public class ModulesInstaller
 {

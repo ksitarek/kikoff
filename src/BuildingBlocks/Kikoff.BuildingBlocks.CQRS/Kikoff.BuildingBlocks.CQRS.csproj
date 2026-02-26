@@ -8,10 +8,12 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+      <PackageReference Include="Scrutor" />
       <PackageReference Include="Serilog" />
     </ItemGroup>
 
-    <ItemGroup>
+    <ItemGroup><!--      <ProjectReference Include="..\Kikoff.BuildingBlocks.Modules\Kikoff.BuildingBlocks.Modules.csproj" />-->
+    
       <ProjectReference Include="..\Kikoff.BuildingBlocks.Modules\Kikoff.BuildingBlocks.Modules.csproj" />
     </ItemGroup>
 
