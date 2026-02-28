@@ -3,6 +3,9 @@ using Kikoff.Api.Host.Installers;
 using Kikoff.BuildingBlocks.CQRS.Extensions;
 using Kikoff.BuildingBlocks.Http.Cors;
 using Kikoff.BuildingBlocks.Modules.Abstractions;
+using Kikoff.BuildingBlocks.Multitenancy.Abstractions;
+using Kikoff.BuildingBlocks.Multitenancy.Extensions;
+using Microsoft.Extensions.Options;
 using Serilog;
 
 namespace Kikoff.Api.Host;
@@ -50,7 +53,8 @@ internal class KikoffHostBuilder
             Services.AddOpenApi();
         }
 
-        _webAppBuilder.AddKikoffCors();
+        _webAppBuilder.AddKikoffCors()
+            .AddTenantContext();
 
         Services.AddKikoffMessageDispatcher();
 

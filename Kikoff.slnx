@@ -3,6 +3,7 @@
     <Project Path="src/BuildingBlocks/Kikoff.BuildingBlocks.CQRS/Kikoff.BuildingBlocks.CQRS.csproj" />
     <Project Path="src/BuildingBlocks/Kikoff.BuildingBlocks.Http/Kikoff.BuildingBlocks.Http.csproj" />
     <Project Path="src/BuildingBlocks/Kikoff.BuildingBlocks.Modules/Kikoff.BuildingBlocks.Modules.csproj" />
+    <Project Path="src/BuildingBlocks/Kikoff.BuildingBlocks.Multitenancy/Kikoff.BuildingBlocks.Multitenancy.csproj" />
   </Folder>
   <Folder Name="/Modules/" />
   <Folder Name="/Modules/Sample/">
